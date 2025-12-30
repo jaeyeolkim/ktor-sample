@@ -18,13 +18,20 @@ dependencies {
     implementation("io.ktor:ktor-serialization-jackson")
     implementation("io.ktor:ktor-server-config-yaml")
 
-    implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.hibernate.orm:hibernate-core:6.4.4.Final")
     implementation("jakarta.persistence:jakarta.persistence-api:3.1.0")
+
     implementation("com.h2database:h2:2.2.224")
+
+    implementation("org.jetbrains.kotlin:kotlin-reflect")
 
     implementation("ch.qos.logback:logback-classic:1.5.13")
 
     testImplementation("io.ktor:ktor-server-test-host")
+    testImplementation(kotlin("test"))
+}
+
+tasks.test {
+    useJUnitPlatform()
 }
 

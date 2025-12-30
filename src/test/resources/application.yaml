@@ -1,0 +1,8 @@
+ktor:
+  deployment:
+    port: 0
+
+hibernate:
+  hbm2ddl:
+    auto: create-drop
+  show_sql: true
