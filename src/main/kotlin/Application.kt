@@ -1,14 +1,17 @@
 package com.example
 
+import io.ktor.serialization.jackson.*
 import io.ktor.server.application.*
-import io.ktor.server.engine.embeddedServer
-import io.ktor.server.netty.Netty
+import io.ktor.server.plugins.contentnegotiation.*
 
 fun main(args: Array<String>) {
     io.ktor.server.netty.EngineMain.main(args)
 }
 
 fun Application.module() {
-    configureHTTP()
+    install(ContentNegotiation) {
+        jackson()
+    }
+
     configureRouting()
 }
