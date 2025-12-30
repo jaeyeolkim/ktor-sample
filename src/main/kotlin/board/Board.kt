@@ -4,18 +4,11 @@ import jakarta.persistence.*
 
 @Entity
 @Table(name = "board")
-open class Board(
+class Board(
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    var id: Long? = null,
 
-    @field:Column(nullable = false)
-    open var title: String,
-
-    @field:Column(nullable = false)
-    open var content: String
-) {
-
-    @field:Id
-    @field:GeneratedValue(strategy = GenerationType.IDENTITY)
-    open var id: Long? = null
-
-    protected constructor() : this("", "")
-}
+    var title: String,
+    var content: String
+)
